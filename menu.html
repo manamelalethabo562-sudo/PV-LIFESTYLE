@@ -56,14 +56,12 @@
             transition: 0.3s;
         }
 
-        .nav-link-back:hover {
-            background: var(--metallic-gold);
-        }
+        .nav-link-back:hover { background: var(--metallic-gold); }
 
         /* --- Menu Header --- */
         .menu-hero {
             height: 40vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://pvlifestyle.co.za/wp-content/uploads/2022/12/IMG-20221213-WA0014.jpg');
             background-size: cover;
             background-position: center;
@@ -73,21 +71,20 @@
             text-align: center;
             color: white;
             border-bottom: 5px solid var(--primary-gold);
-            padding-top: 60px;
         }
 
         .menu-hero h1 { font-size: 3.5rem; letter-spacing: 3px; }
 
-        /* --- Menu Content --- */
+        /* --- Content Section --- */
         .section { padding: 80px 10%; background: white; }
 
         .menu-container {
             max-width: 1000px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .menu-category-title {
-            text-align: center;
             font-size: 2.5rem;
             color: var(--primary-gold);
             margin-bottom: 3rem;
@@ -103,23 +100,28 @@
             margin: 10px auto;
         }
 
+        /* Styling the existing Menu description text from the original site */
         .menu-description {
-            text-align: center;
             font-size: 1.1rem;
             margin-bottom: 4rem;
             color: #666;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
 
+        /* Exact images from pvlifestyle.co.za/our-menu/ */
         .menu-image-frame {
             border: 1px solid var(--primary-gold);
             padding: 15px;
             background: white;
             box-shadow: 15px 15px 0px var(--primary-gold);
             margin-bottom: 4rem;
+            transition: 0.3s;
         }
+
+        .menu-image-frame:hover { transform: scale(1.01); }
 
         .menu-image-frame img {
             width: 100%;
@@ -127,7 +129,6 @@
             display: block;
         }
 
-        /* --- Button --- */
         .btn-gold {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -141,11 +142,6 @@
             border: none;
             transition: 0.3s;
             margin-top: 20px;
-        }
-
-        .btn-gold:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         footer { background: var(--text-dark); color: white; padding: 40px 10%; text-align: center; }
@@ -173,7 +169,7 @@
             <h2 class="menu-category-title" data-aos="fade-up">Fine Dining & Spirits</h2>
             
             <p class="menu-description" data-aos="fade-up">
-                We have a wide range of Spirits, Wines and Champagnes to choose from. 
+                Experience the ideal atmosphere at PV Lifestyle. We have a wide range of Spirits, Wines and Champagnes to choose from. 
                 Our menu is carefully curated to provide the best grilled meats and 
                 premium dining experience in Mokopane.
             </p>
@@ -182,13 +178,9 @@
                 <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/IMG-20221213-WA0019.jpg" alt="PV Lifestyle Menu Item">
             </div>
 
-            <div class="menu-image-frame" data-aos="zoom-in" data-aos-delay="200">
-                <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/IMG-20221213-WA0015.jpg" alt="PV Lifestyle Selection">
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;">
-                <h3 style="margin-bottom: 1rem;">Experience the Taste</h3>
-                <p>Visit us to explore our full seasonal menu and rare vintage collection.</p>
+            <div style="margin-top: 50px;">
+                <h3 style="margin-bottom: 1rem;">Reserve Your Table</h3>
+                <p>Join us to explore our full seasonal menu and rare vintage collection.</p>
                 <a href="https://wa.me/27150006300" class="btn-gold">Book A Table Now</a>
             </div>
 
