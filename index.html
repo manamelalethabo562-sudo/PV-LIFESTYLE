@@ -9,14 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* CHANGED: Swapped to Light/Elegant Theme */
-      --bg-dark: #f9f9f9;       /* Main background: Very light gray/off-white */
-      --bg-darker: #ffffff;     /* Section background: Pure white */
-      --text-light: #2c2c2c;    /* Text: Dark Charcoal (for contrast on light bg) */
-      
-      --gold: #c9a96e;          /* Gold accents kept the same */
+      --bg-dark: #0f0f0f;
+      --bg-darker: #080808;
+      --text-light: #f5f5f5;
+      --gold: #c9a96e;
       --gold-dark: #b08c4e;
-      --accent: #000000;
+      --accent: #ffffff;
     }
     * {
       margin: 0;
@@ -46,14 +44,12 @@
       top: 0;
       width: 100%;
       z-index: 1000;
-      /* CHANGED: Light glass morphism */
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(8, 8, 8, 0.85);
       backdrop-filter: blur(10px);
-      transition: background 0.4s ease, box-shadow 0.4s ease;
+      transition: background 0.4s ease;
     }
     header.scrolled {
       background: var(--bg-darker);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05); /* Added subtle shadow for depth */
     }
     nav {
       display: flex;
@@ -83,7 +79,7 @@
     .nav-links a {
       color: var(--text-light);
       text-decoration: none;
-      font-weight: 500; /* Slightly bolder for readability on light */
+      font-weight: 400;
       text-transform: uppercase;
       font-size: 0.95rem;
       letter-spacing: 1.2px;
@@ -108,14 +104,12 @@
     .nav-links a.active {
       color: var(--gold);
     }
-    
-    /* Hero – CHANGED: Beautiful Light/Bright High-End Restaurant Image */
+    /* Hero */
     .hero {
       height: 100vh;
       min-height: 720px;
-      /* New Image: Bright fine dining atmosphere */
-      background: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.4)), 
-                  url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+                  url('https://images.unsplash.com/photo-1517248135467-2c7ed3ab7229?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -125,19 +119,16 @@
     .hero-content {
       max-width: 900px;
       padding: 2rem;
-      padding-top: 120px;
     }
     .hero h1 {
       font-size: 5.8rem;
-      color: var(--gold); /* Kept gold */
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Added shadow to pop against light BG */
+      color: var(--gold);
       margin-bottom: 1.2rem;
       line-height: 1.05;
     }
     .hero .tagline {
       font-size: 1.9rem;
-      color: #fff; /* Force white for Tagline on Hero only */
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      color: var(--text-light);
       margin-bottom: 2.5rem;
       font-weight: 300;
     }
@@ -145,14 +136,12 @@
       font-size: 1.25rem;
       max-width: 760px;
       margin: 0 auto 2.8rem;
-      color: #fff; /* Force white for Paragraph on Hero only */
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-      opacity: 0.95;
+      opacity: 0.92;
     }
     .btn {
       display: inline-block;
       background: var(--gold);
-      color: #fff; /* Ensure white text on gold button */
+      color: var(--bg-darker);
       padding: 1rem 2.6rem;
       text-decoration: none;
       font-weight: 600;
@@ -161,25 +150,21 @@
       border-radius: 50px;
       transition: all 0.35s;
       margin: 0 1rem 1rem;
-      box-shadow: 0 4px 15px rgba(201,169,110,0.3);
     }
     .btn:hover {
       background: var(--gold-dark);
       transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(201,169,110,0.4);
+      box-shadow: 0 12px 30px rgba(201,169,110,0.25);
     }
     .btn-outline {
-      background: rgba(255,255,255,0.1);
+      background: transparent;
       border: 2px solid var(--gold);
-      color: #fff; /* White text for outline button on hero */
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      color: var(--gold);
     }
     .btn-outline:hover {
       background: var(--gold);
-      color: #fff;
-      text-shadow: none;
+      color: var(--bg-darker);
     }
-
     /* Sections */
     section {
       padding: 10rem 0;
@@ -201,33 +186,22 @@
       left: 50%;
       transform: translateX(-50%);
     }
-
     /* About / Intro */
     .intro {
-      background: var(--bg-darker); /* Now White */
+      background: var(--bg-darker);
       text-align: center;
     }
     .intro p {
       font-size: 1.3rem;
       max-width: 920px;
       margin: 0 auto;
-      opacity: 0.8;
-      color: #555; /* Soften the dark text slightly */
+      opacity: 0.9;
     }
-
-    /* Contact - CHANGED: Cleaner image */
+    /* Contact */
     .contact {
-      /* Brighter, more architectural contact background */
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
-                  url('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') center/cover;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                  url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') center/cover;
       text-align: center;
-      color: #fff; /* Keep text white here because of the image overlay */
-    }
-    .contact h2 {
-        color: var(--gold);
-    }
-    .contact .info-item p, .contact .info-item h3 {
-        color: #fff;
     }
     .contact-info {
       display: flex;
@@ -241,7 +215,6 @@
       font-size: 1.5rem;
       margin-bottom: 0.8rem;
     }
-
     /* Gallery teaser */
     .gallery-teaser {
       display: grid;
@@ -251,12 +224,11 @@
     .gallery-item {
       overflow: hidden;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Lighter shadow */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
       transition: transform 0.4s;
     }
     .gallery-item:hover {
       transform: scale(1.04);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
     }
     .gallery-item img {
       width: 100%;
@@ -264,16 +236,14 @@
       object-fit: cover;
       display: block;
     }
-
     /* Footer */
     footer {
-      background: #111; /* Keep footer dark for grounding */
-      color: #ccc;
+      background: var(--bg-darker);
       text-align: center;
       padding: 4rem 0 2rem;
       font-size: 0.95rem;
+      opacity: 0.8;
     }
-
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 { font-size: 4.2rem; }
@@ -282,8 +252,9 @@
       .contact-info { gap: 2rem; }
     }
     @media (max-width: 600px) {
-      .nav-links { flex-direction: column; gap: 1.8rem; position: absolute; top: 80px; left: 0; right: 0; background: #fff; padding: 2rem; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+      .nav-links { flex-direction: column; gap: 1.8rem; position: absolute; top: 80px; left: 0; right: 0; background: var(--bg-darker); padding: 2rem; display: none; }
       .nav-links.active { display: flex; }
+      /* Add hamburger if needed – omitted for simplicity */
     }
   </style>
 </head>
@@ -299,7 +270,6 @@
       </ul>
     </nav>
   </header>
-
   <section class="hero" id="home">
     <div class="hero-content">
       <h1>PV Lifestyle</h1>
@@ -309,21 +279,20 @@
       <a href="#contact" class="btn btn-outline">Contact Us</a>
     </div>
   </section>
-
   <section class="intro">
     <div class="container">
       <h2 class="section-title">Fine Dining Experience</h2>
       <p>PV Lifestyle is a fine dining restaurant with an intimate atmosphere. Serving up the freshest, most delicious food and meats on the market today coupled with an elegant bar selection.</p>
     </div>
   </section>
-
   <section id="menu">
     <div class="container">
       <h2 class="section-title">Our Menu</h2>
-      <p style="text-align:center; font-size:1.2rem; opacity:0.85; max-width:800px; margin:0 auto 3rem; color: #555;">
+      <p style="text-align:center; font-size:1.2rem; opacity:0.85; max-width:800px; margin:0 auto 3rem;">
         Explore our delicious offerings – from wraps & seafood to platters, pizza, traditional cuisines and main meals.
       </p>
       <div class="gallery-teaser">
+        <!-- Original images used as placeholders – replace src with your actual hosted URLs if desired -->
         <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-Wraps-and-Sea-Food-copy-1024x1024.png" alt="Wraps and Seafood"></div>
         <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-PLATTERS-copy-1024x1024.jpg" alt="Platters"></div>
         <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-Pizza-copy-1024x1024.jpg" alt="Pizza"></div>
@@ -332,11 +301,11 @@
       </div>
     </div>
   </section>
-
   <section id="gallery">
     <div class="container">
       <h2 class="section-title">Gallery</h2>
       <div class="gallery-teaser">
+        <!-- Placeholder images from original gallery -->
         <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/header-image.jpg" alt="Venue"></div>
         <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/IMG-20221213-WA0018.jpg" alt="Interior"></div>
         <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/IMG-20221213-WA0021.jpg" alt="Food"></div>
@@ -344,7 +313,6 @@
       </div>
     </div>
   </section>
-
   <section id="contact" class="contact">
     <div class="container">
       <h2 class="section-title">Contact Us</h2>
@@ -362,20 +330,19 @@
           <p>info@pvlifestyle.co.za</p>
         </div>
       </div>
-      <p style="margin-top:2rem; font-size:1.1rem; color: #fff;">Complete this form or reach out directly.</p>
+      <p style="margin-top:2rem; font-size:1.1rem;">Complete this form or reach out directly.</p>
     </div>
   </section>
-
   <footer>
     <div class="container">
       <p>© 2026 PV Lifestyle · Designed with elegance</p>
     </div>
   </footer>
-
   <script>
+    // Simple scroll effect for header
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100);
     });
   </script>
 </body>
-</html>
+</html> 
