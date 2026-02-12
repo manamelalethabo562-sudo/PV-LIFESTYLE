@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | PV Lifestyle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        :root { --gold: #d4af37; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f9f9f7; margin: 0; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('logo.png'); background-repeat: repeat; background-size: 250px; opacity: 0.05; z-index: -1; }
+        nav { background: rgba(0,0,0,0.95); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .brand { font-family: 'Playfair Display', serif; color: var(--gold); font-weight: bold; font-size: 1.5rem; text-decoration: none; }
+        nav div a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; text-transform: uppercase; }
+        .active { color: var(--gold) !important; }
+        footer { background: black; color: white; text-align: center; padding: 3rem; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="brand">PV LIFESTYLE</a>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <section class="py-20 px-8">
+        <h2 class="text-5xl font-serif text-center mb-16" style="font-family: 'Playfair Display';">Experience PV</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <img src="https://images.unsplash.com/photo-1550966841-3ee2964620d1" class="w-full h-80 object-cover shadow-lg">
+            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187" class="w-full h-80 object-cover shadow-lg">
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9" class="w-full h-80 object-cover shadow-lg">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" class="w-full h-80 object-cover shadow-lg">
+            <img src="https://images.unsplash.com/photo-1560624052-449f5ddf0c31" class="w-full h-80 object-cover shadow-lg">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de" class="w-full h-80 object-cover shadow-lg">
+        </div>
+    </section>
+
+    <footer><p class="brand">PV LIFESTYLE</p></footer>
+</body>
+</html>
