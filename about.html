@@ -25,11 +25,11 @@
       line-height: 1.7;
     }
 
-    h1, h2 { font-family: 'Playfair Display', serif; letter-spacing: 1.2px; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 1.2px; }
 
     .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
 
-    /* Header – identical across pages */
+    /* Header */
     header {
       position: fixed;
       top: 0; width: 100%; z-index: 1000;
@@ -86,7 +86,7 @@
 
     /* About Content */
     .about-section {
-      padding: 12rem 0 10rem;
+      padding: 12rem 0 8rem;
       background: var(--bg-darker);
     }
     .section-title {
@@ -100,7 +100,7 @@
 
     .about-content {
       max-width: 980px;
-      margin: 0 auto;
+      margin: 0 auto 6rem;
       font-size: 1.28rem;
       text-align: center;
     }
@@ -111,6 +111,39 @@
     .highlight {
       color: var(--gold);
       font-weight: 500;
+    }
+
+    /* Gallery Grid in About */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(201,169,110,0.2);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
     }
 
     /* Footer */
@@ -126,13 +159,9 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 4.8rem; }
       .hero p { font-size: 1.45rem; }
-      .nav-links { gap: 2rem; }
       .about-section { padding: 8rem 0 6rem; }
       .section-title { font-size: 3.6rem; }
-    }
-
-    @media (max-width: 600px) {
-      .nav-links { gap: 1.6rem; font-size: 0.92rem; }
+      .gallery-item img { height: 280px; }
     }
   </style>
 </head>
@@ -170,6 +199,26 @@
         <p>Beyond the restaurant, we proudly offer <span class="highlight">catering services</span> and host various <span class="highlight">events</span>, bringing the same quality and elegance to your special occasions.</p>
 
         <p>At PV Lifestyle, every detail is crafted to create unforgettable experiences — from the freshest ingredients to impeccable service in the heart of Mokopane.</p>
+      </div>
+
+      <h2 class="section-title" style="font-size:3.2rem; margin:6rem 0 3rem;">Our Atmosphere in Pictures</h2>
+
+      <div class="gallery-grid">
+        <!-- Gallery images from original /about/ page -->
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/header-image.jpg" alt="PV Lifestyle Venue"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/IMG-20221213-WA0018.jpg" alt="Interior View"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/IMG-20221213-WA0021.jpg" alt="Dining Area"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/IMG-20221213-WA0047.jpg" alt="Bar Setup"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/IMG-20221213-WA0014.jpg" alt="Ambiance Shot"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/PHOTO-2022-12-13-21-04-15-1.jpg" alt="Evening Lighting"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-home/cropped-IMG-20221213-WA0015.jpg" alt="Seating Area"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-32-10.jpg" alt="Event Space"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-31-17-2.jpg" alt="Outdoor Chillas"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-31-16.jpg" alt="Relaxed Seating"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-31-17.jpg" alt="Bar Details"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-31-16-3.jpg" alt="Venue Overview"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-31-16-2.jpg" alt="Interior Highlight"></div>
+        <div class="gallery-item"><img src="https://pvlifestyle.co.za/wp-content/gallery/pv-gallery/PHOTO-2022-12-14-23-31-15.jpg" alt="Dining Experience"></div>
       </div>
     </div>
   </section>
