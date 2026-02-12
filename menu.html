@@ -3,49 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu | PV Lifestyle</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Our Menu | PV Lifestyle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-        :root { --gold: #d4af37; }
-        body { font-family: 'Poppins', sans-serif; background-color: #f9f9f7; margin: 0; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('logo.png'); background-repeat: repeat; background-size: 250px; opacity: 0.05; z-index: -1; }
-        nav { background: rgba(0,0,0,0.95); padding: 1.2rem 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .brand { font-family: 'Playfair Display', serif; color: var(--gold); font-weight: bold; font-size: 1.5rem; text-decoration: none; }
-        nav div a { color: white; text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; text-transform: uppercase; }
-        .active { color: var(--gold) !important; }
-        footer { background: black; color: white; text-align: center; padding: 3rem; margin-top: 50px; }
+        :root {
+            --primary-gold: #b38b45; 
+            --metallic-gold: linear-gradient(135deg, #d4af37 0%, #fcf6ba 45%, #b38b45 100%);
+            --soft-gold: #fdfaf2; 
+            --text-dark: #2d2922; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--soft-gold);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* --- Navigation (Matches Home) --- */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            color: var(--primary-gold);
+            text-decoration: none;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        /* --- Menu Header --- */
+        .menu-hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://pvlifestyle.co.za/wp-content/uploads/2022/12/IMG-20221213-WA0014.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid var(--primary-gold);
+        }
+
+        .menu-hero h1 { font-size: 3.5rem; letter-spacing: 3px; }
+
+        /* --- Menu Content --- */
+        .section { padding: 80px 10%; background: white; }
+
+        .menu-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-category-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .menu-category-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--metallic-gold);
+            margin: 10px auto;
+        }
+
+        /* Styling the existing Menu description text */
+        .menu-description {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            color: #666;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .menu-image-frame {
+            border: 1px solid var(--primary-gold);
+            padding: 15px;
+            background: white;
+            box-shadow: 15px 15px 0px var(--primary-gold);
+            margin-bottom: 4rem;
+        }
+
+        .menu-image-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--metallic-gold);
+            color: var(--text-dark);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: none;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        footer { background: var(--text-dark); color: white; padding: 40px 10%; text-align: center; }
+
+        @media (max-width: 768px) {
+            .menu-hero h1 { font-size: 2.5rem; }
+            .section { padding: 50px 5%; }
+        }
     </style>
 </head>
 <body>
+
     <nav>
-        <a href="index.html" class="brand">PV LIFESTYLE</a>
-        <div>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="menu.html" class="active">Menu</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </div>
+        <a href="index.html" class="logo">PV LIFESTYLE</a>
+        <a href="index.html" style="text-decoration: none; color: var(--text-dark); font-size: 0.8rem; font-weight: bold; border: 1px solid var(--primary-gold); padding: 5px 15px;">BACK HOME</a>
     </nav>
 
-    <section class="max-w-4xl mx-auto py-20 px-6">
-        <h2 class="text-5xl font-serif text-center mb-16" style="font-family: 'Playfair Display';">The Menu</h2>
-        
-        <div class="mb-12">
-            <h3 class="text-2xl font-serif border-b-2 border-[#d4af37] mb-6 pb-2">Main Selection</h3>
-            <div class="flex justify-between py-3 border-b border-gray-100"><span>PV Signature T-Bone</span><span>R245</span></div>
-            <div class="flex justify-between py-3 border-b border-gray-100"><span>Flame-Grilled Lamb Chops</span><span>R210</span></div>
-            <div class="flex justify-between py-3 border-b border-gray-100"><span>Chef's Special Platter</span><span>R380</span></div>
-        </div>
+    <header class="menu-hero">
+        <h1 data-aos="fade-down">Our Menu</h1>
+    </header>
 
-        <div class="mb-12">
-            <h3 class="text-2xl font-serif border-b-2 border-[#d4af37] mb-6 pb-2">Premium Bar</h3>
-            <div class="flex justify-between py-3 border-b border-gray-100"><span>Hennessy V.S.O.P</span><span>R1,200</span></div>
-            <div class="flex justify-between py-3 border-b border-gray-100"><span>Rare Vintage Red</span><span>R350</span></div>
+    <section class="section">
+        <div class="menu-container">
+            
+            <h2 class="menu-category-title" data-aos="fade-up">Fine Dining & Spirits</h2>
+            
+            <p class="menu-description" data-aos="fade-up">
+                We have a wide range of Spirits, Wines and Champagnes to choose from. 
+                Our menu is carefully curated to provide the best grilled meats and 
+                premium dining experience in Mokopane.
+            </p>
+
+            <div class="menu-image-frame" data-aos="zoom-in">
+                <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/IMG-20221213-WA0019.jpg" alt="PV Lifestyle Menu Item">
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <h3 style="margin-bottom: 1rem;">Experience the Taste</h3>
+                <p>Visit us to explore our full seasonal menu and rare vintage collection.</p>
+                <a href="https://wa.me/27150006300" class="btn-gold">Book A Table Now</a>
+            </div>
+
         </div>
     </section>
 
-    <footer><p class="brand">PV LIFESTYLE</p></footer>
+    <footer>
+        <p>&copy; 2026 PV LIFESTYLE | MOKOPANE</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>
