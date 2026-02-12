@@ -4,128 +4,223 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Menu – PV Lifestyle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* SHARED LUXURY THEME CSS */
     :root {
-      --bg-dark: #f9f9f9;
-      --bg-darker: #ffffff;
-      --text-light: #2c2c2c;
+      --bg-dark: #0f0f0f;
+      --bg-darker: #080808;
+      --text-light: #f5f5f5;
       --gold: #c9a96e;
       --gold-dark: #b08c4e;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--bg-dark); color: var(--text-light); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: 1px; }
+
     .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
 
-    /* Header & Nav */
-    header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 5%; }
-    .logo { font-size: 1.8rem; font-family: 'Playfair Display', serif; color: var(--gold); text-decoration: none; font-weight: 700; }
-    .logo span { color: var(--text-light); font-size: 0.9rem; display: block; font-weight: 300; letter-spacing: 2px; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text-light); text-decoration: none; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; font-weight: 500; transition: color 0.3s; }
+    /* Header – identical to homepage */
+    header {
+      position: fixed;
+      top: 0; width: 100%; z-index: 1000;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(10px);
+      transition: background 0.4s;
+    }
+    header.scrolled { background: var(--bg-darker); }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 5%;
+    }
+
+    .logo {
+      font-size: 2.1rem; font-family: 'Playfair Display', serif;
+      color: var(--gold); text-decoration: none;
+    }
+    .logo span {
+      color: var(--text-light); display: block; font-weight: 300;
+      font-size: 1.1rem; letter-spacing: 2px; margin-top: -0.3rem;
+    }
+
+    .nav-links {
+      display: flex; gap: 2.8rem; list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-light); text-decoration: none;
+      text-transform: uppercase; font-size: 0.95rem; letter-spacing: 1.2px;
+      position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; width: 0; height: 2px;
+      bottom: -6px; left: 0; background: var(--gold); transition: width 0.4s;
+    }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
     .nav-links a:hover, .nav-links a.active { color: var(--gold); }
 
-    /* Page Header */
-    .page-header {
-      height: 60vh;
-      min-height: 400px;
-      background: linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1544148103-0773bf10d330?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') center/cover;
+    /* Hero */
+    .hero {
+      height: 70vh; min-height: 560px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                  url('https://images.unsplash.com/photo-1517248135467-2c7ed3ab7229?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80') center/cover no-repeat;
       display: flex; align-items: center; justify-content: center; text-align: center;
     }
-    .page-header h1 { font-size: 4.5rem; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .hero h1 {
+      font-size: 6rem; color: var(--gold); margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.6rem; max-width: 800px; margin: 0 auto; opacity: 0.9;
+    }
 
-    /* Menu Sections */
-    .menu-category { padding: 6rem 0; background: var(--bg-darker); border-bottom: 1px solid #eee; }
-    .menu-category:nth-child(even) { background: var(--bg-dark); }
-    .category-title { text-align: center; font-size: 2.5rem; color: var(--gold); margin-bottom: 3rem; }
-    
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
-    .menu-item { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); transition: transform 0.3s; }
-    .menu-item:hover { transform: translateY(-5px); }
-    .menu-item h3 { font-size: 1.4rem; margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
-    .price { color: var(--gold); font-weight: 700; }
-    .menu-item p { opacity: 0.8; font-size: 0.95rem; margin-top: 1rem; }
+    /* Menu Section */
+    .menu-section {
+      padding: 10rem 0 8rem;
+      background: var(--bg-darker);
+    }
+    .section-title {
+      text-align: center; font-size: 4.2rem; color: var(--gold);
+      margin-bottom: 5rem; position: relative;
+    }
+    .section-title::after {
+      content: ''; width: 140px; height: 3px; background: var(--gold);
+      position: absolute; bottom: -1.5rem; left: 50%; transform: translateX(-50%);
+    }
 
-    footer { background: #111; color: #ccc; text-align: center; padding: 4rem 0 2rem; margin-top: 0; }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 3rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .menu-category {
+      background: rgba(20,20,20,0.6);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .menu-category:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(201,169,110,0.15);
+    }
+
+    .menu-category h3 {
+      background: var(--gold);
+      color: var(--bg-darker);
+      padding: 1.4rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    .menu-image {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Footer – identical */
+    footer {
+      background: var(--bg-darker);
+      text-align: center;
+      padding: 4rem 0 2rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 4.5rem; }
+      .menu-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .menu-image { height: 420px; }
+    }
   </style>
 </head>
 <body>
-  <header>
+
+  <header id="header">
     <nav class="container">
       <a href="index.html" class="logo">PV Lifestyle<span>The ideal atmosphere</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html" class="active">Our Menu</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="page-header">
-    <h1>Our Menu</h1>
-  </section>
-
-  <section class="menu-category">
+  <section class="hero">
     <div class="container">
-      <h2 class="category-title">Platters & Sharing</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <h3>Meat Platter <span class="price">R450</span></h3>
-          <p>A selection of premium grilled meats including beef strips, wings, and sausages served with dipping sauces.</p>
-        </div>
-        <div class="menu-item">
-          <h3>Seafood Platter <span class="price">R550</span></h3>
-          <p>Grilled prawns, calamari, hake goujons, and mussels served with lemon butter sauce.</p>
-        </div>
-        <div class="menu-item">
-          <h3>PV Signature Mix <span class="price">R600</span></h3>
-          <p>The best of both worlds: a generous combination of our finest meats and seafood.</p>
-        </div>
-      </div>
+      <h1>Our Menu</h1>
+      <p>Discover our exquisite selection of wraps, seafood, platters, pizzas, traditional cuisines and signature main meals.</p>
     </div>
   </section>
 
-  <section class="menu-category">
+  <section class="menu-section">
     <div class="container">
-      <h2 class="category-title">Traditional Cuisines</h2>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <h3>Mogodu <span class="price">R120</span></h3>
-          <p>Slow-cooked traditional tripe served with your choice of pap or dombolo.</p>
-        </div>
-        <div class="menu-item">
-          <h3>Hardbody Chicken <span class="price">R140</span></h3>
-          <p>Flavorful indigenous chicken stewed to perfection.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="section-title">Menu Categories</h2>
 
-  <section class="menu-category">
-    <div class="container">
-      <h2 class="category-title">Pizza & Light Meals</h2>
       <div class="menu-grid">
-        <div class="menu-item">
-          <h3>PV Supreme Pizza <span class="price">R160</span></h3>
-          <p>Loaded with steak strips, pepperoni, mushrooms, peppers, and our secret sauce.</p>
+
+        <!-- Wraps & Seafood -->
+        <div class="menu-category">
+          <h3>Wraps & Seafood</h3>
+          <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-Wraps-and-Sea-Food-copy-1024x1024.png" alt="Wraps and Seafood" class="menu-image">
         </div>
-        <div class="menu-item">
-          <h3>Chicken & Mayo Wrap <span class="price">R95</span></h3>
-          <p>Grilled chicken breast, crisp lettuce, and tangy mayo wrapped in a toasted tortilla.</p>
+
+        <!-- Platters -->
+        <div class="menu-category">
+          <h3>Platters</h3>
+          <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-PLATTERS-copy-1024x1024.jpg" alt="Platters" class="menu-image">
         </div>
+
+        <!-- Pizza -->
+        <div class="menu-category">
+          <h3>Pizza</h3>
+          <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-Pizza-copy-1024x1024.jpg" alt="Pizza" class="menu-image">
+        </div>
+
+        <!-- Traditional Cuisines -->
+        <div class="menu-category">
+          <h3>Traditional Cuisines</h3>
+          <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-main-Tradition-Cuisines-copy-1024x1024.jpg" alt="Traditional Cuisines" class="menu-image">
+        </div>
+
+        <!-- Main Meals -->
+        <div class="menu-category">
+          <h3>Main Meals</h3>
+          <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/PV-main-meal-copy-1024x1024.jpg" alt="Main Meals" class="menu-image">
+        </div>
+
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>© 2026 PV Lifestyle · Designed with elegance</p>
+      <p>© 2026 PV Lifestyle · The ideal atmosphere</p>
     </div>
   </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100);
+    });
+  </script>
 </body>
 </html>
