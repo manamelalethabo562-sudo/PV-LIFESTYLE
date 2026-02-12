@@ -49,6 +49,21 @@
             font-weight: bold;
         }
 
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
         /* --- Hero Section --- */
         .hero {
             height: 90vh;
@@ -98,7 +113,7 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: #25d366; /* Standard WhatsApp Green */
+            background: #25d366; 
             color: white;
             border-radius: 50%;
             text-align: center;
@@ -112,7 +127,6 @@
             transition: transform 0.3s;
         }
 
-        /* Customizing for your "Gold" theme */
         .whatsapp-gold {
             background: var(--metallic-gold);
             color: var(--text-dark);
@@ -152,6 +166,7 @@
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .hero-card { width: 85%; padding: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -162,8 +177,14 @@
     </a>
 
     <nav>
-        <a href="#" class="logo">PV LIFESTYLE</a>
-        <div style="font-size: 0.8rem; font-weight: bold; letter-spacing: 2px;">MOKOPANE</div>
+        <a href="index.html" class="logo">PV LIFESTYLE</a>
+        <div class="nav-links">
+            <a href="about.html">About</a>
+            <a href="our-menu.html">Our Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </nav>
 
     <section class="hero">
@@ -171,7 +192,7 @@
             <p style="color: var(--primary-gold); letter-spacing: 5px; text-transform: uppercase; font-size: 0.9rem;">Experience Luxury</p>
             <h1 style="font-size: 4rem; margin: 10px 0;">PV LIFESTYLE</h1>
             <p style="font-style: italic;">Where fine dining meets the ultimate atmosphere.</p>
-            <a href="tel:0150006300" class="btn-gold">Call To Book</a>
+            <a href="contact.html" class="btn-gold">Book Now</a>
         </div>
     </section>
 
@@ -180,7 +201,7 @@
             <div data-aos="fade-right">
                 <h2 style="font-size: 3rem; margin-bottom: 2rem;">The Private <br><span style="color: var(--primary-gold);">Experience</span></h2>
                 <p>Join us for an intimate dining experience or relax in our exclusive "Outside Chillas" area. We offer a curated selection of premium spirits and the finest cuts of meat in the region.</p>
-                <a href="#gallery" class="btn-gold" style="background: transparent; border: 1px solid var(--primary-gold);">View Gallery</a>
+                <a href="gallery.html" class="btn-gold" style="background: transparent; border: 1px solid var(--primary-gold);">View Gallery</a>
             </div>
             <div data-aos="fade-left">
                 <img src="https://pvlifestyle.co.za/wp-content/uploads/2022/12/IMG-20221213-WA0015.jpg" class="main-img">
