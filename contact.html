@@ -49,6 +49,27 @@
             font-weight: bold;
         }
 
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 1.5rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-gold);
+            border-bottom: 2px solid var(--primary-gold);
+            padding-bottom: 2px;
+        }
+
         /* --- Header --- */
         .contact-hero {
             height: 40vh;
@@ -187,7 +208,13 @@
 
     <nav>
         <a href="index.html" class="logo">PV LIFESTYLE</a>
-        <a href="index.html" style="text-decoration: none; color: var(--text-dark); font-size: 0.8rem; font-weight: bold; border: 1px solid var(--primary-gold); padding: 5px 15px;">BACK HOME</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Our Menu</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
     </nav>
 
     <header class="contact-hero">
