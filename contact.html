@@ -28,7 +28,7 @@
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* --- Navigation (Matches Home) --- */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             width: 100%;
@@ -147,8 +147,9 @@
             transition: 0.3s;
         }
 
-        .btn-gold:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .btn-gold:disabled {
+            background: #ccc;
+            cursor: not-allowed;
         }
 
         /* --- Floating WhatsApp --- */
@@ -234,17 +235,17 @@
 
             <div class="form-frame" data-aos="fade-left">
                 <h3>Send a Message</h3>
-                <form>
+                <form id="contactForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Full Name" required>
+                        <input type="text" id="userName" placeholder="Full Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email Address" required>
+                        <input type="email" id="userEmail" placeholder="Email Address" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Inquiry (Reservations, Events, etc.)" rows="5" required></textarea>
+                        <textarea id="userMessage" placeholder="Your Inquiry (Reservations, Events, etc.)" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn-gold">Send Message</button>
+                    <button type="submit" id="submitBtn" class="btn-gold">Send Message</button>
                 </form>
             </div>
 
@@ -254,6 +255,67 @@
     <footer>
         <p>&copy; 2026 PV LIFESTYLE | MOKOPANE</p>
     </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-analytics.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBXt2ptTagXVlLpKFFEyK71sDoj5P7vwzw",
+            authDomain: "pvlifestyle-811d0.firebaseapp.com",
+            projectId: "pvlifestyle-811d0",
+            storageBucket: "pvlifestyle-811d0.firebasestorage.app",
+            messagingSenderId: "18014275552",
+            appId: "1:18014275552:web:25e31e8712eb66ad9b4d85",
+            measurementId: "G-8G6H6E4FR9",
+            databaseURL: "https://pvlifestyle-811d0-default-rtdb.firebaseio.com"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getDatabase(app);
+
+        // Form Handling Logic
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Disable button during send
+            submitBtn.disabled = true;
+            submitBtn.innerText = "SENDING...";
+
+            const name = document.getElementById('userName').value;
+            const email = document.getElementById('userEmail').value;
+            const message = document.getElementById('userMessage').value;
+
+            // Push to "inquiries" node
+            const inquiriesRef = ref(db, 'inquiries');
+            const newInquiryRef = push(inquiriesRef);
+
+            set(newInquiryRef, {
+                fullName: name,
+                email: email,
+                message: message,
+                submittedAt: new Date().toLocaleString()
+            })
+            .then(() => {
+                alert("Thank you! Your message has been received.");
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error("Firebase Error: ", error);
+                alert("Something went wrong. Please try again.");
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "SEND MESSAGE";
+            });
+        });
+    </script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
