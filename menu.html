@@ -20,11 +20,12 @@
             background-color: var(--soft-gold);
             color: var(--text-dark);
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* --- Navigation (Matches Home) --- */
+        /* --- Navigation --- */
         nav {
             position: fixed;
             width: 100%;
@@ -45,6 +46,20 @@
             font-weight: bold;
         }
 
+        .nav-link-back {
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-size: 0.8rem; 
+            font-weight: bold; 
+            border: 1px solid var(--primary-gold); 
+            padding: 5px 15px;
+            transition: 0.3s;
+        }
+
+        .nav-link-back:hover {
+            background: var(--metallic-gold);
+        }
+
         /* --- Menu Header --- */
         .menu-hero {
             height: 40vh;
@@ -58,6 +73,7 @@
             text-align: center;
             color: white;
             border-bottom: 5px solid var(--primary-gold);
+            padding-top: 60px;
         }
 
         .menu-hero h1 { font-size: 3.5rem; letter-spacing: 3px; }
@@ -87,7 +103,6 @@
             margin: 10px auto;
         }
 
-        /* Styling the existing Menu description text */
         .menu-description {
             text-align: center;
             font-size: 1.1rem;
@@ -112,6 +127,7 @@
             display: block;
         }
 
+        /* --- Button --- */
         .btn-gold {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -127,6 +143,11 @@
             margin-top: 20px;
         }
 
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
         footer { background: var(--text-dark); color: white; padding: 40px 10%; text-align: center; }
 
         @media (max-width: 768px) {
@@ -139,7 +160,7 @@
 
     <nav>
         <a href="index.html" class="logo">PV LIFESTYLE</a>
-        <a href="index.html" style="text-decoration: none; color: var(--text-dark); font-size: 0.8rem; font-weight: bold; border: 1px solid var(--primary-gold); padding: 5px 15px;">BACK HOME</a>
+        <a href="index.html" class="nav-link-back">BACK HOME</a>
     </nav>
 
     <header class="menu-hero">
